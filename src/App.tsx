@@ -93,7 +93,7 @@ function App() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 dark:from-purple-300 dark:via-pink-300 dark:to-blue-300 bg-clip-text text-transparent mb-3 sm:mb-4 leading-tight">
                 Create Music Magic
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto leading-relaxed px-4">
+              <p className="text-base sm:text-lg md:text-xl text-gray-400 dark:text-gray-200 max-w-2xl mx-auto leading-relaxed px-4">
                 Transform your emotions into beautiful melodies with our AI-powered music generator
               </p>
             </div>

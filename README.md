@@ -62,7 +62,7 @@ This will start both the frontend (Vite) and backend (Express) servers concurren
 
 ### URLs
 - Frontend: `http://localhost:5173`
-- Backend API: `http://localhost:3001`
+- Backend API: `https://wubble-full-backend.onrender.com`
 
 ## 📁 Project Structure
 
