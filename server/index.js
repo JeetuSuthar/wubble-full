@@ -79,16 +79,32 @@ app.post('/api/generate', (req, res) => {
   // Simulate AI processing delay
   setTimeout(() => {
     const key = `${mood.toLowerCase()}-${genre.toLowerCase()}`;
-    const tracks = mockTracks[key] || mockTracks['happy-pop'];
-    const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
+    const tracks = mockTracks[key];
     
-    // Add some randomness to the track
-    const generatedTrack = {
-      ...randomTrack,
-      id: Date.now(),
-      title: `${randomTrack.title} (${Math.floor(Math.random() * 100)})`,
-      generatedAt: new Date().toISOString()
-    };
+    let generatedTrack;
+    
+    if (tracks && tracks.length > 0) {
+      // Use existing mock data
+      const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
+      generatedTrack = {
+        ...randomTrack,
+        id: Date.now(),
+        title: `${randomTrack.title} (${Math.floor(Math.random() * 100)})`,
+        generatedAt: new Date().toISOString()
+      };
+    } else {
+      // Generate a fallback track for combinations that don't exist
+      generatedTrack = {
+        id: Date.now(),
+        title: `${mood} ${genre} Track (${Math.floor(Math.random() * 100)})`,
+        mood: mood,
+        genre: genre,
+        duration: 180 + Math.floor(Math.random() * 60), // Random duration between 180-240 seconds
+        url: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3',
+        preview: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3',
+        generatedAt: new Date().toISOString()
+      };
+    }
     
     res.json(generatedTrack);
   }, 2000);

@@ -29,7 +29,7 @@ export const apiService = {
     return response.data;
   },
 
-  async generateTrack(mood: string, genre: string): Promise<Track> {
+   async generateTrack(mood: string, genre: string): Promise<Track> {
     const response = await api.post('/generate', { mood, genre });
     return response.data;
   },
