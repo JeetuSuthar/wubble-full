@@ -1,10 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = 3001;
@@ -12,10 +7,7 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Serve static audio files
-app.use('/audio', express.static(join(__dirname, 'audio')));
 
-// Mock music data with working royalty-free URLs
 const mockTracks = {
   'happy-pop': [
     {
